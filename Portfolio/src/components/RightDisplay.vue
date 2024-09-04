@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import Languages from './Languages.vue'
+    import Languages from './Languages.vue'
+    import Jobs from './Jobs.vue'
+    import Redirect from './ProjectRedirection.vue'
 </script>
 
 <template>
     <div class="right-column">
-        <h2>Programming languages</h2>
-        <Languages/>
+        <div>
+            <h2>Programming languages</h2>
+            <Languages/>
+        </div>
+        <Jobs />
+        <Redirect />
+        <Redirect />
     </div>
 </template>
 
@@ -17,5 +24,6 @@ import Languages from './Languages.vue'
         height: 100%;
         align-items: center;
         background-color: black;
+        gap: 25px;
     }
 </style>
