@@ -1,81 +1,52 @@
-<template>
-  <div class="border-animated">
-    <div class="border-top"></div>
-    <div class="border-right"></div>
-    <div class="border-bottom"></div>
-    <div class="border-left"></div>
-  </div>
-</template>
-
 <script>
 export default {
-  name: 'AnimatedBorderComponent'
+  name: 'AnimatedBorderComponent',
+  props: {
+    label: String
+  }
 };
 </script>
 
+<template>
+  <div class="redirection-style">
+    <div class="border-animated">
+      {{ label }}
+      <div class="box"></div>
+    </div>
+  </div>
+</template>
+
+
 <style scoped>
+
+.redirection-style {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .border-animated {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  background-color: lightgray;
+  padding: 0px;
+  font-size: 2vw;
+  height: auto;
+  border-bottom: #000;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-.border-top,
-.border-right,
-.border-bottom,
-.border-left {
-  position: absolute;
-  background-color: red;
+.border-bottom {
+  color: #000;
+  margin: 0;
+  font-size: 10px;
+  background-color: white;
   box-sizing: border-box;
-}
-
-/* Borde superior */
-.border-top {
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 5px;
-  animation: paint-top 1s forwards;
-}
-
-/* Borde derecho */
-.border-right {
-  top: 0;
-  right: 0;
-  width: 5px;
-  height: 0;
-  animation: paint-right 1s 1s forwards; /* Retraso de 1s */
 }
 
 /* Borde inferior */
 .border-bottom {
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 5px;
+  height: auto;
   animation: paint-bottom 1s 2s forwards; /* Retraso de 2s */
-}
-
-/* Borde izquierdo */
-.border-left {
-  bottom: 0;
-  left: 0;
-  width: 5px;
-  height: 0;
-  animation: paint-left 1s 3s forwards; /* Retraso de 3s */
-}
-
-@keyframes paint-top {
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes paint-right {
-  to {
-    height: 100%;
-  }
 }
 
 @keyframes paint-bottom {
@@ -84,9 +55,26 @@ export default {
   }
 }
 
-@keyframes paint-left {
-  to {
-    height: 100%;
-  }
+.box {
+  width: 200px;
+  height: 10px;
+  position: relative;
+  background-color: lightgray;
 }
+
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px; /* Grosor del borde */
+  width: 0; /* Comienza con 0 de ancho */
+  background-color: red;
+  transition: width 1s ease; /* Duración y tipo de transición */
+}
+
+.box:hover::before {
+  width: 100%; /* Ancho completo en hover */
+}
+
 </style>

@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import Left from './components/LeftDisplay.vue'
-import Center from './components/CenterDisplay.vue'
-import Right from './components/RightDisplay.vue'
+import NavBar from './components/NavBar.vue'
+import Home from './pages/Home.vue'
 </script>
 
 <template>
-  <div class="grid-display">
-    <Left/>
-    <Center/>
-    <Right/>
+  <div class="portfolio-style">
+    <NavBar/>
+    <router-view />
   </div>
 </template>
 
 <style scoped>
-  .grid-display {
-    display: grid;;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 100%;
-    height: 94vh;
+  .portfolio-style {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #FAFAFA;
   }
+
 </style>
