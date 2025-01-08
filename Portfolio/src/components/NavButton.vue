@@ -59,6 +59,6 @@ export default {
 }
 
 .textBar.active {
-	
+  color: #FFF;
 }
 </style>
