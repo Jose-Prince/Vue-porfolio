@@ -27,7 +27,8 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		background-color: #FFF;
-    		filter: drop-shadow(0 0 1mm rgb(0, 0, 0))
+    	filter: drop-shadow(0 0 1mm rgb(0, 0, 0));
+		padding-right: 25px;
 	}
 
 	.margin-name {

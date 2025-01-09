@@ -23,7 +23,6 @@
 	background-color: #FAFAFA;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 	height: 100%;
 	color: black;
 	padding: 10px;
