@@ -6,6 +6,10 @@ const name = ref('');
 const email = ref('');
 const message = ref('');
 
+const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+const templateId = import.meta.env.VITE_TEMPLATE_ID;
+const serviceId = import.meta.env.VITE_SERVICE_ID;
+
 const sendEmail = async (e: Event) => {
   e.preventDefault(); // Evitar recarga de la página
 
@@ -15,15 +19,19 @@ const sendEmail = async (e: Event) => {
   }
 
   try {
+    console.log('Public Key:', publicKey);
+console.log('Template ID:', templateId);
+console.log('Service ID:', serviceId);
+
     await emailjs.send(
-      'service_bsgi8w4', // Reemplaza con tu ID de servicio
-      'template_qozlnfc', // Reemplaza con tu ID de plantilla
+      serviceId, // Reemplaza con tu ID de servicio
+      templateId, // Reemplaza con tu ID de plantilla
       {
         name: name.value,
         email: email.value,
         message: message.value,
       },
-      '8-_ab_y2gDFi6x4e3' // Reemplaza con tu ID de usuario de EmailJS
+      publicKey // Reemplaza con tu ID de usuario de EmailJS
     );
 
     alert('Correo enviado con éxito.');
